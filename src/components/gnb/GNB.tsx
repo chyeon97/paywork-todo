@@ -6,7 +6,7 @@ const GNB: React.FC = () => {
   return (
     <Wrap>
       <Text>PAY WORK</Text>
-      <TodayDate>{getDate(new Date)}</TodayDate>
+      <TodayDate>{getDate(new Date())}</TodayDate>
     </Wrap>
   )
 }
