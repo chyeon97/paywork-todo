@@ -10,6 +10,9 @@ const GlobalStyle = createGlobalStyle`
     background-color: #fff;
     color: #000;
   }
+  h1, h2, h3{
+    margin:0;
+  }
 `;
 
 export default GlobalStyle;

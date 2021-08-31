@@ -37,15 +37,14 @@ const Title = styled.h2`
   width:100%;
   padding:10px;
 `
-const InnerContainer = styled.div`
-  ${({ theme }) => theme.flexSet('center', 'center', 'row')};
-  width:100%;
-  height:auto;
-`;
-
 const Wrap = styled.div`
   width:100%;
   height:auto;
   padding:10px 0px;
 `
+const InnerContainer = styled.div`
+  ${({ theme }) => theme.flexSet('center', 'center', 'row')};
+  width:100%;
+  height:auto;
+`;
 export default Overall;

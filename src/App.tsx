@@ -10,11 +10,9 @@ function App() {
       <GNB></GNB>
       <AddContainer></AddContainer>
       <Body>
-        <TodoContainer title={"TO DO"}>
-        </TodoContainer>
-        <TodoContainer title={"DONE"}>
-        </TodoContainer>
-        <Progress></Progress>
+        <TodoContainer title={"TO DO"} />
+        <TodoContainer title={"DONE"} />
+        <Progress />
       </Body>
     </Wrap>
   )

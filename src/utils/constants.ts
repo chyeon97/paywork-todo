@@ -1,7 +1,7 @@
 const PRIORITY = {
-  HIGH: ['높음', 'red'],
-  MIDDLE: ['보통', 'green'],
-  LOW: ['낮음', 'yellow'],
+  HIGH: ['높음', '#F60000'],
+  MIDDLE: ['보통', '#13B123'],
+  LOW: ['낮음', '#F6B100'],
 };
 
 interface ISelect {

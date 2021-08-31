@@ -11,7 +11,7 @@ const Progressbar: React.FC<IProgressbar> = ({ label, percent }) => {
     <>
       <Label>{label}</Label>
       <Container>
-        <ProgressBar value={percent} />
+        <ProgressBar key={label} value={percent} />
       </Container>
     </>
   )
