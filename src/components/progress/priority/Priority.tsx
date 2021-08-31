@@ -11,7 +11,7 @@ const Priority: React.FC = () => {
         <InnerContainer>
           {SELECT.PRIORITY.map(option => {
             return (
-              <CirclePrgbar label={option[0]} percent={75} color={option[1]} />
+              <CirclePrgbar key={option[0]} label={option[0]} percent={75} color={option[1]} />
             )
           })}
         </InnerContainer>

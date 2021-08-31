@@ -92,6 +92,7 @@ const ItemDot = styled.div<{ color: string }>`
 const Item = styled.ul`
   padding:10px 10px;
   font-size:15px;
+  
 `;
 
 export default Select;
