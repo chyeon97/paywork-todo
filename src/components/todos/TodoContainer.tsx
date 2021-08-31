@@ -20,5 +20,6 @@ const Container = styled.div`
   height:100%;
   border:1px solid black;
   border-radius: 5px;
+  padding:10px;
 `
 export default TodoContainer;

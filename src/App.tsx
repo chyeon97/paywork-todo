@@ -1,7 +1,8 @@
 import React from 'react';
+import styled from 'styled-components';
 import { GNB } from 'components/gnb';
 import { AddContainer, TodoContainer } from 'components/todos'
-import styled from 'styled-components';
+import { Progress } from 'components/progress'
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
         </TodoContainer>
         <TodoContainer title={"DONE"}>
         </TodoContainer>
-
+        <Progress></Progress>
       </Body>
     </Wrap>
   )

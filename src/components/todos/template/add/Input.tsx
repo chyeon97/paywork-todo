@@ -44,6 +44,5 @@ const TodoInput = styled.input`
   border-radius:5px;
   font-size:25px;
   padding: 15px 15px;
-  background-color: wheat;
 `;
 export default Input;
