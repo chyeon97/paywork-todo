@@ -54,7 +54,7 @@ const PrioritySeletor = styled.div`
   border-radius:5px;
   border:1px solid black;
   font-weight:500;
-  font-size:18px;
+  font-size:15px;
   display:flex;
   cursor: pointer;
 `;
@@ -71,6 +71,7 @@ const ItemsContainer = styled.div`
   padding:10px;
   background-color: #fff;
   box-shadow: 3px 3px 10px 6px rgba(0,0,0,0.06);
+  border:1px solid black;
   width:100%;
 `;
 
@@ -85,12 +86,12 @@ const ItemInnerContainer = styled.div`
 
 const ItemDot = styled.div<{ color: string }>`
   color:${props => props.color};
-  font-size: 18px;
+  font-size: 15px;
 `;
 
 const Item = styled.ul`
   padding:10px 10px;
-  font-size:18px;
+  font-size:15px;
 `;
 
 export default Select;

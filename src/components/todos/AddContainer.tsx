@@ -14,7 +14,7 @@ const AddContainer: React.FC = () => {
 const Container = styled.div`
   ${({ theme }) => theme.flexSet('center', 'center', 'row')}
   width:100%;
-  height:172px;
+  height:20%;
   background-color: #151C3E;
   padding:10px 30px;
 `;

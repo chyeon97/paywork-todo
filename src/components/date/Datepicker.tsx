@@ -1,31 +1,44 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
+import Datepicker, { registerLocale } from 'react-datepicker';
+import "react-datepicker/dist/react-datepicker.css";
+import './style.css';
+import { ko } from "date-fns/esm/locale";
 
+interface IDate {
+  id: string;
+  date: null | Date;
+  handleChange: (
+    e: Date,
+    event: React.SyntheticEvent<any, Event> | undefined,
+  ) => void;
+}
 
+const MyDatepicker: React.FC<IDate> = ({ date, handleChange }) => {
 
-
-const Datepicker: React.FC = () => {
-  const [selectedDate, setSelectedDate] = useState(new Date());
-  const changeDate = () => {
-    console.log(selectedDate)
-  }
   return (
-    <></>
+    <Container>
+      <Datepicker
+        locale={ko}
+        showPopperArrow={false}
+        dateFormat="🗓  완료일: yyyy/MM/dd(eee)"
+        selected={date}
+        onChange={handleChange}
+      />
+    </Container>
+
+
+
 
   )
 }
 
 const Container = styled.div`
-  width:280px;
+  width:200px;
   height:100%;
   border:1px solid black;
   border-radius:5px;
 `;
 
-const Picker = styled.div`
-  width:100%;
-  height:100%;
-  background-color: aliceblue;
-`
 
-export default Datepicker;
+export default MyDatepicker;

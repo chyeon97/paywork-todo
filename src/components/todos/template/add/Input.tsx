@@ -1,13 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Select } from 'components/selector';
 import { Datepicker } from 'components/date';
+import getDate from 'utils/getDate';
+
 const Input: React.FC = () => {
+  const [selectedDate, setSelectedDate] = useState<null | Date>(new Date())
+  const handleDate = (date: Date) => {
+    const formattedDate = getDate(date);
+    setSelectedDate(date);
+    // const res = getUnique('createdAt', selected);
+    // setSelected([...res, { option: 'createdAt', select: formattedDate }]);
+  };
   return (
     <>
       <Container>
         <TodoInput />
-        <Datepicker />
+        <Datepicker id="EndDate" date={selectedDate} handleChange={handleDate} />
         <Select />
       </Container>
     </>
@@ -35,5 +44,6 @@ const TodoInput = styled.input`
   border-radius:5px;
   font-size:25px;
   padding: 15px 15px;
+  background-color: wheat;
 `;
 export default Input;
