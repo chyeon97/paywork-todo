@@ -1,10 +1,10 @@
 <br />
 <p align='middle'>
-  <a href='https://paywork-todo.netlify.app/'>
+  <a href='https://paywork-todos.netlify.app/'>
     <img src='https://user-images.githubusercontent.com/40657327/131680536-cacac39b-a908-444b-a5e2-5543f07fafd3.png' width="300px;" alt="LiveMD" />
   </a>
 </p>
-<h2 align='middle'><a href='https://paywork-todo.netlify.app/'>paywork-todo.netlify.app</a></h2>
+<h2 align='middle'><a href='https://paywork-todos.netlify.app/'>paywork-todos.netlify.app</a></h2>
 <p align="middle">
 <img src="https://img.shields.io/github/languages/top/chyeon97/solarconnect-todo-list?color=lightblue&logo=Typescript"> </img>
 <img src="https://img.shields.io/github/repo-size/chyeon97/solarconnect-todo-list?color=%25&logo=Github"></img>
