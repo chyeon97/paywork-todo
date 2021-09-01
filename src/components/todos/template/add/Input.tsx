@@ -1,25 +1,28 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { Select } from 'components/selector';
 import { Datepicker } from 'components/date';
-// import getDate from 'utils/getDate';
 
-const Input: React.FC = () => {
-  const [selectedDate, setSelectedDate] = useState<null | Date>(new Date())
-  const handleDate = (date: Date) => {
-    // const formattedDate = getDate(date);
-    setSelectedDate(date);
-    // const res = getUnique('createdAt', selected);
-    // setSelected([...res, { option: 'createdAt', select: formattedDate }]);
-  };
+interface Iinput {
+  inputValue: string;
+  onChangeInput: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  dueDate: Date;
+  onChangeDueDate: (
+    e: Date,
+    event: React.SyntheticEvent<any, Event> | undefined,
+  ) => void;
+  // selectValue: string;
+  // onChangeSelect: (e: React.MouseEvent<HTMLElement>) => void;
+}
+
+const Input: React.FC<Iinput> = ({ inputValue, onChangeInput, dueDate, onChangeDueDate }) => {
+
   return (
-    <>
-      <Container>
-        <TodoInput />
-        <Datepicker id="EndDate" date={selectedDate} handleChange={handleDate} />
-        <Select />
-      </Container>
-    </>
+    <Container>
+      <TodoInput value={inputValue} onChange={onChangeInput} />
+      <Datepicker id="EndDate" date={dueDate} handleChange={onChangeDueDate} />
+      {/* <Select value={selectValue} handleChange={onChangeSelect} /> */}
+    </Container>
   )
 }
 const Container = styled.div`
@@ -45,4 +48,5 @@ const TodoInput = styled.input`
   font-size:25px;
   padding: 15px 15px;
 `;
+
 export default Input;

@@ -1,16 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
-import { TodoItem } from './template/todo'
-interface ITodo {
+import { TodoItem } from './template/todo';
+import storeType, { todo } from 'store/types/storeType';
+import { useEffect } from 'react';
+// import { ITodo } from 'store/action/types';
+interface IProperty {
   title: string;
-
+  todos: todo[];
 }
 
-const TodoContainer: React.FC<ITodo> = ({ title }) => {
+
+const TodoContainer: React.FC<IProperty> = ({ title, todos }) => {
+
   return (
     <Container title={title}>
-      <TodoItem title={title} />
-
+      <TodoItem title={title} todos={todos} />
     </Container>
   )
 }

@@ -2,18 +2,21 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { SELECT } from 'utils/constants'
 
-const Select: React.FC = () => {
+interface ISelect {
+  value: string;
+  handleChange: (e: React.MouseEvent<HTMLElement>) => void;
+}
+const Select: React.FC<ISelect> = ({ value, handleChange }) => {
   const [isActive, setIsActive] = useState(false);
   const handleOpen = () => {
     isActive && setIsActive(false);
     !isActive && setIsActive(true)
   }
-
   return (
     <Container>
       <PrioritySeletor onClick={handleOpen}>
         <SelectContainer>
-          중요도
+          {value ? value : '중요도'}
         </SelectContainer>
         {!isActive &&
           <SelectContainer>
@@ -27,8 +30,8 @@ const Select: React.FC = () => {
       {isActive && <ItemsContainer>
         {SELECT.PRIORITY.map(option => {
           return (
-            <ItemInnerContainer>
-              <ItemDot color={option[1]}>●</ItemDot>
+            <ItemInnerContainer key={option[0]} id={option[0]} onClick={handleChange} >
+              <ItemDot key={option[1]} color={option[1]}>●</ItemDot>
               <Item key={option[0]}>{option[0]}</Item>
             </ItemInnerContainer>
 
@@ -89,10 +92,9 @@ const ItemDot = styled.div<{ color: string }>`
   font-size: 15px;
 `;
 
-const Item = styled.ul`
+const Item = styled.div`
   padding:10px 10px;
   font-size:15px;
   
 `;
-
 export default Select;

@@ -1,32 +1,15 @@
-import React from 'react';
-import styled from 'styled-components';
-import { GNB } from 'components/gnb';
-import { AddContainer, TodoContainer } from 'components/todos'
-import { Progress } from 'components/progress'
+import { useSelector } from 'react-redux';
+import Main from 'components/Main';
+import { Modal } from 'components/modal';
 
 function App() {
+  const modal = useSelector((state: any) => state.modals);
   return (
-    <Wrap>
-      <GNB></GNB>
-      <AddContainer></AddContainer>
-      <Body>
-        <TodoContainer title={"TO DO"} />
-        <TodoContainer title={"DONE"} />
-        <Progress />
-      </Body>
-    </Wrap>
+    <>
+      <Main />
+      {modal.showModal && <Modal title={modal.title} contents={modal.contents} />}
+    </>
   )
 }
-const Wrap = styled.div`
-  width:100%;
-  height:100vh;
-`
-
-const Body = styled.div`
-  ${({ theme }) => theme.flexSet('space-between', 'center', 'row')}
-  width:100%;
-  height:72%;
-  padding:20px 20px;
-`
 
 export default App;

@@ -1,10 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Button: React.FC = () => {
+interface IButton {
+  onClickAdd: () => void;
+}
+
+const Button: React.FC<IButton> = ({ onClickAdd }) => {
   return (
     <>
-      <TodoButton>
+      <TodoButton onClick={onClickAdd}>
         <Text>추가</Text>
       </TodoButton>
     </>

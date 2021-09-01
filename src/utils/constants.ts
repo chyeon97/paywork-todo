@@ -10,3 +10,6 @@ interface ISelect {
 export const SELECT: ISelect = {
   PRIORITY: [PRIORITY.HIGH, PRIORITY.MIDDLE, PRIORITY.LOW],
 };
+
+export const URL = 'https://f248a602-3244-4229-9f05-f6cd922294fe.mock.pstmn.io';
+export const DETAIL = '/todo';
