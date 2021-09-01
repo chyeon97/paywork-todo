@@ -21,11 +21,13 @@ const Container = styled.div`
   width:80%;
   height:auto;
   padding:10px;
+  z-index:0;
 `;
 const Label = styled.h4`
   width:20%;
   padding:10px;
   color:black;
+  z-index:0;
 `;
 
 const ProgressBar = styled.progress`

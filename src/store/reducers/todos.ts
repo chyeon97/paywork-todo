@@ -1,8 +1,12 @@
 import { Reducer } from 'redux';
 import { todo } from 'store/types/storeType';
-import { createdTodoAction, gotTodos } from 'store/types/actionsType';
+import {
+  createdTodoAction,
+  gotTodos,
+  removedTodoAction,
+} from 'store/types/actionsType';
 
-type actions = createdTodoAction | gotTodos;
+type actions = createdTodoAction | gotTodos | removedTodoAction;
 
 const initState: todo[] = [];
 
@@ -14,6 +18,10 @@ const todoReducer: Reducer<any, actions> = (state = initState, action) => {
     case 'GOT_TODOS':
       console.log(typeof action.todos);
       return [...state, action.todos];
+
+    case 'REMOVED_TODO':
+      console.log(action);
+      return [...state, action];
     default:
       return [...state];
   }

@@ -4,37 +4,38 @@ import { SELECT } from 'utils/constants'
 
 interface ISelect {
   value: string;
+  isSelect: boolean;
+  handleOpen: () => void;
   handleChange: (e: React.MouseEvent<HTMLElement>) => void;
 }
-const Select: React.FC<ISelect> = ({ value, handleChange }) => {
-  const [isActive, setIsActive] = useState(false);
-  const handleOpen = () => {
-    isActive && setIsActive(false);
-    !isActive && setIsActive(true)
-  }
+const Select: React.FC<ISelect> = ({ value, handleChange, isSelect, handleOpen }) => {
+  // const [isActive, setIsActive] = useState(false);
+  // const handleOpen = () => {
+  //   isActive && setIsActive(false);
+  //   !isActive && setIsActive(true)
+  // }
   return (
     <Container>
       <PrioritySeletor onClick={handleOpen}>
         <SelectContainer>
-          {value ? value : '중요도'}
+          {value ? value : '상태'}
         </SelectContainer>
-        {!isActive &&
+        {!isSelect &&
           <SelectContainer>
             ▼
           </SelectContainer>}
-        {isActive &&
+        {isSelect &&
           <SelectContainer>
             ▲
           </SelectContainer>}
       </PrioritySeletor>
-      {isActive && <ItemsContainer>
-        {SELECT.PRIORITY.map(option => {
+      {isSelect && <ItemsContainer>
+        {SELECT.STATUS.map(option => {
           return (
-            <ItemInnerContainer key={option[0]} id={option[0]} onClick={handleChange} >
-              <ItemDot key={option[1]} color={option[1]}>●</ItemDot>
-              <Item key={option[0]}>{option[0]}</Item>
+            <ItemInnerContainer key={option} id={option} onClick={handleChange} >
+              {/* <ItemDot key={option[1]} color={option[1]}>●</ItemDot> */}
+              <Item key={option}>{option}</Item>
             </ItemInnerContainer>
-
           )
         })}
       </ItemsContainer>}

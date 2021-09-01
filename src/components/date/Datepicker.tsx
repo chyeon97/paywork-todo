@@ -7,7 +7,7 @@ import { ko } from "date-fns/esm/locale";
 
 interface IDate {
   id: string;
-  date: null | Date;
+  date: Date;
   handleChange: (
     e: Date,
     event: React.SyntheticEvent<any, Event> | undefined,
@@ -26,10 +26,6 @@ const MyDatepicker: React.FC<IDate> = ({ date, handleChange }) => {
         onChange={handleChange}
       />
     </Container>
-
-
-
-
   )
 }
 

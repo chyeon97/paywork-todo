@@ -4,10 +4,20 @@ const PRIORITY = {
   LOW: ['낮음', '#F6B100'],
 };
 
+const STATUS = {
+  TODO: 'TO DO',
+  DONE: 'DONE',
+};
 interface ISelect {
+  [key: string]: string[];
+}
+interface ISELECTP {
   [key: string]: string[][];
 }
 export const SELECT: ISelect = {
+  STATUS: [STATUS.TODO, STATUS.DONE],
+};
+export const SELECTP: ISELECTP = {
   PRIORITY: [PRIORITY.HIGH, PRIORITY.MIDDLE, PRIORITY.LOW],
 };
 

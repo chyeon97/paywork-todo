@@ -1,9 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { TodoItem } from './template/todo';
-import storeType, { todo } from 'store/types/storeType';
-import { useEffect } from 'react';
-// import { ITodo } from 'store/action/types';
+import { todo } from 'store/types/storeType';
+
 interface IProperty {
   title: string;
   todos: todo[];

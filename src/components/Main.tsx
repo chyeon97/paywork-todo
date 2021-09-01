@@ -3,12 +3,11 @@ import styled from 'styled-components';
 import { GNB } from 'components/gnb';
 import { AddContainer, TodoContainer } from 'components/todos'
 import { Progress } from 'components/progress'
-import { useDispatch } from 'react-redux';
-import { showModal } from 'store/action/modals';
 import { getTodos, createTodo } from 'store/action/todos';
 import { getTodoActionCreator, createTodoActionCreator } from 'store/types/actionCreatorTypes';
 import { connect } from "react-redux";
 import storeType, { todo } from 'store/types/storeType'
+// import { Modal } from 'components/modal'
 
 interface IProperty {
   todos: todo[] | any;
@@ -71,7 +70,6 @@ const Main: React.FC<IProperty> = ({ todos, getTodos, createTodo }) => {
         <TodoContainer title={"DONE"} todos={renderTodos()[1]} />
         <Progress />
       </Body>
-      {/* <button onClick={() => dispatch(showModal('로그인', 'test'))}>모달 열기</button> */}
     </Wrap>
   )
 }

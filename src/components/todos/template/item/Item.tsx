@@ -1,5 +1,8 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { showModal, showReviseModal } from 'store/action/modal';
 import styled from 'styled-components';
+import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import { todo } from 'store/types/storeType';
 import getDate from 'utils/getDate';
 interface ITodo {
@@ -7,13 +10,19 @@ interface ITodo {
 }
 
 const Item: React.FC<ITodo> = ({ todos }) => {
-  console.log(getDate(new Date(todos.dueAt)))
+  // console.log(getDate(new Date(todos.dueAt)))
+  const dispatch = useDispatch();
 
   return (
     <Container>
       {/* <Important></Important> */}
       <Text>{todos.content}</Text>
       <EndDate>{getDate(new Date(todos.dueAt))}</EndDate>
+      <EditContainer>
+        <Revise onClick={() => dispatch(showReviseModal(todos.id, todos.content, todos.dueAt, todos.isCheck))}><EditOutlined /></Revise>
+        <Remove onClick={() => dispatch(showModal(todos.id))}><DeleteOutlined /></Remove>
+      </EditContainer>
+
     </Container>
   )
 }
@@ -36,7 +45,7 @@ const Container = styled.div`
 
 const Text = styled.h3`
 ${({ theme }) => theme.flexSet("flex-start", "center", "row")};
-  width:60%;
+  width:50%;
   height:100%;
   padding:20px;
   /* background-color: blue; */
@@ -48,5 +57,25 @@ const EndDate = styled.h4`
   height:100%;
   color:#CDCDCD
   /* background-color: darkblue; */
+`;
+
+const EditContainer = styled.div`
+    ${({ theme }) => theme.flexSet("flex-start", "flex-start", "row")};
+    width:10%;
+    height:100%;
+    padding:3px;
+`;
+
+const Revise = styled.div`
+  width:50%;
+  height:auto;
+  color: #8283a7;
+  cursor: pointer;
+`;
+const Remove = styled.div`
+  width:50%;
+  height:auto;
+  color: #e71d36;
+  cursor: pointer;
 `;
 export default Item;

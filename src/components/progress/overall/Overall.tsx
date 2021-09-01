@@ -5,9 +5,10 @@ import { Progressbar } from '../progressbar';
 const Overall: React.FC = () => {
   return (
     <Container>
-      <Title>Progress</Title>
-      <Wrap>
-        <InnerContainer>
+      <Title>ANALYSIS TIME</Title>
+      <Wrap>N/A <br />
+        (완료일의 시간을 이용해 보통 어느 시간대에 작업을 완료하는지 데이터 분석)
+        {/* <InnerContainer>
           <Progressbar label={'🌞 Morning'} percent={0.1} />
         </InnerContainer>
         <InnerContainer>
@@ -18,12 +19,15 @@ const Overall: React.FC = () => {
         </InnerContainer>
         <InnerContainer>
           <Progressbar label={'🌙 Night'} percent={0.2} />
-        </InnerContainer>
+        </InnerContainer> */}
       </Wrap>
 
     </Container>
+
+
   )
 }
+
 
 const Container = styled.div`
   width:100%;
@@ -31,6 +35,7 @@ const Container = styled.div`
   padding:10px;
   border:1px solid black;
   border-radius: 15px;
+  background-color: #00000090;
 `;
 
 const Title = styled.h2`
@@ -40,7 +45,9 @@ const Title = styled.h2`
 const Wrap = styled.div`
   width:100%;
   height:auto;
-  padding:10px 0px;
+  padding:50px 0px;
+  font-size:15px;
+  text-align:center;
 `
 const InnerContainer = styled.div`
   ${({ theme }) => theme.flexSet('center', 'center', 'row')};

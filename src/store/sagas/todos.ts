@@ -4,6 +4,10 @@ import {
   createTodoAction,
   createdTodoAction,
   gotTodos,
+  removeTodoAction,
+  removedTodoAction,
+  reviseTodoAction,
+  revisedTodoAction,
 } from 'store/types/actionsType';
 import { AxiosResponse } from 'axios';
 import todoApi from 'api/todo-api';
@@ -11,6 +15,8 @@ import todoApi from 'api/todo-api';
 function* todoSaga(): Generator<StrictEffect> {
   yield takeEvery(actionIds.CREATE_TODO, createTodoWorker);
   yield takeEvery(actionIds.GET_TODOS, getTodosWorker);
+  yield takeEvery(actionIds.REMOVE_TODO, removeTodoWorker);
+  yield takeEvery(actionIds.REVISE_TODO, reviseTodoWorker);
 }
 
 function* createTodoWorker({ content, dueAt }: createTodoAction) {
@@ -20,7 +26,7 @@ function* createTodoWorker({ content, dueAt }: createTodoAction) {
       content: content,
       dueAt: dueAt,
     });
-    console.log(response.data);
+    console.log(response);
     switch (response.status) {
       case 200:
         const data: createdTodoAction = {
@@ -47,4 +53,43 @@ function* getTodosWorker() {
   } catch (err) {}
 }
 
+function* removeTodoWorker({ id }: removeTodoAction) {
+  // console.log('test')
+  try {
+    const response: AxiosResponse = yield call(
+      todoApi.post,
+      '/todo?id=' + `${id}`,
+    );
+    console.log(response);
+    switch (response.status) {
+      case 200:
+        const data: removedTodoAction = {
+          type: 'REMOVED_TODO',
+        };
+        yield put(data);
+    }
+  } catch (err) {}
+}
+
+function* reviseTodoWorker({ id, content, isCheck, dueAt }: reviseTodoAction) {
+  try {
+    const response: AxiosResponse = yield call(
+      todoApi.post,
+      '/todo?id=' + `${id}`,
+      {
+        content: content,
+        isCheck: isCheck,
+        dueAt: dueAt,
+      },
+    );
+    console.log(response);
+    switch (response.status) {
+      case 200:
+        const data: revisedTodoAction = {
+          type: 'REVISED_TODO',
+        };
+        yield put(data);
+    }
+  } catch (err) {}
+}
 export default todoSaga;
