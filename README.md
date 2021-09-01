@@ -30,7 +30,7 @@
 
 `npm start`
 
----
+
 
 <br/>
 
@@ -39,11 +39,12 @@
 - Typescript + React 웹
 - Redux + Redux-saga 사용
 
----
+<br/>
 
 ## DEMO
 
 `조회`
+
 <img src="https://user-images.githubusercontent.com/40657327/131682623-caa51907-3d37-40f4-9eb4-1bd5410b7650.gif">
 
 `추가`
