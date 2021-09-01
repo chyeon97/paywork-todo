@@ -6,8 +6,8 @@
 </p>
 <h2 align='middle'><a href='https://paywork-todos.netlify.app/'>paywork-todos.netlify.app</a></h2>
 <p align="middle">
-<img src="https://img.shields.io/github/languages/top/chyeon97/solarconnect-todo-list?color=lightblue&logo=Typescript"> </img>
-<img src="https://img.shields.io/github/repo-size/chyeon97/solarconnect-todo-list?color=%25&logo=Github"></img>
+<img src="https://img.shields.io/github/languages/top/chyeon97/paywork-todo?color=lightblue&logo=typescript&style=flat-square"> </img>
+<img src="https://img.shields.io/github/repo-size/chyeon97/paywork-todo?color=25&logo=github&style=flat-square"></img>
 </p>
 
 <br/>
