@@ -1,4 +1,4 @@
-import { delay, put, takeLatest } from 'redux-saga/effects';
+import { put, takeLatest } from 'redux-saga/effects';
 import {
   SHOW_MODAL,
   CLOSE_MODAL,
@@ -7,8 +7,6 @@ import {
 } from 'store/types/actionsType';
 
 export function* showModal() {
-  // yield delay(3000);
-
   yield put({
     type: CLOSE_MODAL,
   });

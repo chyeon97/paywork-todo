@@ -10,17 +10,22 @@ interface ITodo {
 }
 
 const Item: React.FC<ITodo> = ({ todos }) => {
-  // console.log(getDate(new Date(todos.dueAt)))
   const dispatch = useDispatch();
+  const onClickRevise = () => {
+    dispatch(showReviseModal(todos.id, todos.content, todos.dueAt, todos.isCheck))
+  }
 
+  const onClickRemove = () => {
+    dispatch(showModal(todos.id))
+  }
   return (
     <Container>
       {/* <Important></Important> */}
       <Text>{todos.content}</Text>
       <EndDate>{getDate(new Date(todos.dueAt))}</EndDate>
       <EditContainer>
-        <Revise onClick={() => dispatch(showReviseModal(todos.id, todos.content, todos.dueAt, todos.isCheck))}><EditOutlined /></Revise>
-        <Remove onClick={() => dispatch(showModal(todos.id))}><DeleteOutlined /></Remove>
+        <Revise onClick={onClickRevise}><EditOutlined /></Revise>
+        <Remove onClick={onClickRemove}><DeleteOutlined /></Remove>
       </EditContainer>
 
     </Container>
@@ -56,7 +61,6 @@ const EndDate = styled.h4`
   width:40%;
   height:100%;
   color:#CDCDCD
-  /* background-color: darkblue; */
 `;
 
 const EditContainer = styled.div`

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { CirclePrgbar } from '../circleProgressbar';
-import { SELECTP } from 'utils/constants';
+// import { CirclePrgbar } from '../circleProgressbar';
+// import { SELECTP } from 'utils/constants';
 
 const Priority: React.FC = () => {
   return (
@@ -38,11 +38,11 @@ const Wrap = styled.div`
   text-align:center;
 `;
 
-const InnerContainer = styled.div`
-  ${({ theme }) => theme.flexSet('center', 'center', 'row')};
-  width:100%;
-  height:auto;
-`;
+// const InnerContainer = styled.div`
+//   ${({ theme }) => theme.flexSet('center', 'center', 'row')};
+//   width:100%;
+//   height:auto;
+// `;
 
 const Title = styled.h2`
   width:100%;

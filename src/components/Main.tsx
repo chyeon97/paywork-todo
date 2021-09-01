@@ -5,9 +5,8 @@ import { AddContainer, TodoContainer } from 'components/todos'
 import { Progress } from 'components/progress'
 import { getTodos, createTodo } from 'store/action/todos';
 import { getTodoActionCreator, createTodoActionCreator } from 'store/types/actionCreatorTypes';
-import { connect } from "react-redux";
+import { connect, useDispatch } from "react-redux";
 import storeType, { todo } from 'store/types/storeType'
-// import { Modal } from 'components/modal'
 
 interface IProperty {
   todos: todo[] | any;
@@ -16,15 +15,13 @@ interface IProperty {
 }
 
 const Main: React.FC<IProperty> = ({ todos, getTodos, createTodo }) => {
+  const dispatch = useDispatch();
   React.useEffect(() => {
-    getTodos();
-    // renderTodos();
+    getTodos(); // todo 조회
   }, [getTodos]);
 
   const [value, setValue] = useState('');
   const [selectedDate, setSelectedDate] = useState<Date>(new Date())
-  // const [priority, setPriority] = useState('');
-  const [add, setAdd] = useState(false);
 
   const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value)
@@ -50,16 +47,16 @@ const Main: React.FC<IProperty> = ({ todos, getTodos, createTodo }) => {
   }
 
   const onClickAdd = () => {
-    // setAdd(true)
     const newTodo = value;
     const newDueAt = selectedDate;
     if (newTodo && newDueAt) {
-      createTodo(newTodo, newDueAt);
-      setValue('')
+      if (dispatch(createTodo(newTodo, newDueAt)).type === 'CREATE_TODO') {
+        alert('추가 데이터 전송 성공');
+        setValue('')
+      }
     }
     else return
   }
-
 
   return (
     <Wrap>
@@ -91,10 +88,6 @@ const mapStateToProps = (state: storeType) => {
 };
 
 export default connect(mapStateToProps, {
-  // deleteTodo,
-  // markComplete,
-  // markIncomplete,
   getTodos,
   createTodo,
 })(Main);
-// export default Main;

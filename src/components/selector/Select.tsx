@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { SELECT } from 'utils/constants'
 
@@ -9,11 +9,7 @@ interface ISelect {
   handleChange: (e: React.MouseEvent<HTMLElement>) => void;
 }
 const Select: React.FC<ISelect> = ({ value, handleChange, isSelect, handleOpen }) => {
-  // const [isActive, setIsActive] = useState(false);
-  // const handleOpen = () => {
-  //   isActive && setIsActive(false);
-  //   !isActive && setIsActive(true)
-  // }
+
   return (
     <Container>
       <PrioritySeletor onClick={handleOpen}>
@@ -33,7 +29,6 @@ const Select: React.FC<ISelect> = ({ value, handleChange, isSelect, handleOpen }
         {SELECT.STATUS.map(option => {
           return (
             <ItemInnerContainer key={option} id={option} onClick={handleChange} >
-              {/* <ItemDot key={option[1]} color={option[1]}>●</ItemDot> */}
               <Item key={option}>{option}</Item>
             </ItemInnerContainer>
           )
@@ -87,12 +82,6 @@ const ItemInnerContainer = styled.div`
     background-color: #f4f7f7;
   }
 `;
-
-const ItemDot = styled.div<{ color: string }>`
-  color:${props => props.color};
-  font-size: 15px;
-`;
-
 const Item = styled.div`
   padding:10px 10px;
   font-size:15px;

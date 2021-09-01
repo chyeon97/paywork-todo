@@ -27,20 +27,9 @@ export interface reviseTodoAction {
   isCheck: boolean;
   dueAt: Date;
 }
-
-// export interface openModal {
-//   type: 'SHOW_MODAL';
-//   show: boolean;
-// }
-
-// export interface closeModal {
-//   type: 'CLOSE_MODAL';
-// }
-
 // For Reducers
 export interface createdTodoAction {
   type: 'CREATED_TODO';
-  todo: todo;
 }
 
 export interface gotTodos {
@@ -55,15 +44,6 @@ export interface removedTodoAction {
 export interface revisedTodoAction {
   type: 'REVISED_TODO';
 }
-
-// export interface opendModal {
-//   type: 'SHOWN_MODAL';
-//   show: boolean;
-// }
-
-// export interface closedModal {
-//   type: 'CLOSED_MODAL';
-// }
 
 export const actionIds = {
   CREATE_TODO: 'CREATE_TODO',

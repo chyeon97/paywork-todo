@@ -7,7 +7,6 @@ import {
 
 //삭제모달
 export const showModal = (id: string) => {
-  console.log(id);
   return {
     type: SHOW_MODAL,
     id,

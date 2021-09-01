@@ -8,7 +8,6 @@ import { reviseTodoActionCreator } from 'store/types/actionCreatorTypes'
 import { closeReviseModal } from 'store/action/modal';
 import { convertStatus, convertStatusToBolean } from 'utils/getStatus';
 import storeType from 'store/types/storeType';
-import { useEffect } from 'react';
 
 interface ITodo {
   id: string;
@@ -24,7 +23,6 @@ const ReviseModal: React.FC<ITodo> = ({ id, content, dueDate, status }) => {
   const [input, setInput] = useState(content)
   const [isActive, setIsActive] = useState(false);
   const [selectedDate, setSelectedDate] = useState<Date>(new Date(dueDate))
-  // console.log(convertStatus(status));
   const [value, setValue] = useState(convertStatus(status));
   const handleOpen = () => {
     isActive && setIsActive(false);
@@ -49,16 +47,12 @@ const ReviseModal: React.FC<ITodo> = ({ id, content, dueDate, status }) => {
   const onClickOk = () => {
     if (id && dueDate && convertStatus(status)) {
       if (dispatch(reviseTodo(id, input, convertStatusToBolean(value), selectedDate)).type === 'REVISE_TODO') {
-        console.log('수정성공')
+        alert('수정 데이터 전송 성공')
         dispatch(closeReviseModal())
       }
-      console.log(dispatch(reviseTodo(id, input, convertStatusToBolean(value), selectedDate)).type)
     }
   }
 
-  // useEffect(() => {
-  //   console.log(input)
-  // }, [input])
   return (
     <BackContainer>
       <Container>
@@ -174,12 +168,5 @@ const mapStateToProps = (state: storeType) => {
 };
 
 export default connect(mapStateToProps, {
-  // deleteTodo,
-  // markComplete,
-  // markIncomplete,
   reviseTodo
-  // getTodos,
-  // createTodo,
 })(ReviseModal);
-
-// export default ReviseModal;

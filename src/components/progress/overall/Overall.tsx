@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Progressbar } from '../progressbar';
+// import { Progressbar } from '../progressbar';
 
 const Overall: React.FC = () => {
   return (
@@ -49,9 +49,9 @@ const Wrap = styled.div`
   font-size:15px;
   text-align:center;
 `
-const InnerContainer = styled.div`
-  ${({ theme }) => theme.flexSet('center', 'center', 'row')};
-  width:100%;
-  height:auto;
-`;
+// const InnerContainer = styled.div`
+//   ${({ theme }) => theme.flexSet('center', 'center', 'row')};
+//   width:100%;
+//   height:auto;
+// `;
 export default Overall;

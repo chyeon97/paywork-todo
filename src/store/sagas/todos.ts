@@ -31,8 +31,8 @@ function* createTodoWorker({ content, dueAt }: createTodoAction) {
       case 200:
         const data: createdTodoAction = {
           type: 'CREATED_TODO',
-          todo: response.data.data,
         };
+        console.log(data);
         yield put(data);
     }
   } catch (err) {}
@@ -41,24 +41,24 @@ function* createTodoWorker({ content, dueAt }: createTodoAction) {
 function* getTodosWorker() {
   try {
     const response: AxiosResponse = yield call(todoApi.get, '/todo');
+    console.log(response);
     switch (response.status) {
       case 200:
-        console.log(response.data.todoList);
         const data: gotTodos = {
           type: 'GOT_TODOS',
           todos: response.data.todoList,
         };
+        console.log(data);
         yield put(data);
     }
   } catch (err) {}
 }
 
 function* removeTodoWorker({ id }: removeTodoAction) {
-  // console.log('test')
   try {
     const response: AxiosResponse = yield call(
       todoApi.post,
-      '/todo?id=' + `${id}`,
+      '/todo?id=' + String(`${id}`),
     );
     console.log(response);
     switch (response.status) {
@@ -66,6 +66,7 @@ function* removeTodoWorker({ id }: removeTodoAction) {
         const data: removedTodoAction = {
           type: 'REMOVED_TODO',
         };
+        console.log(data);
         yield put(data);
     }
   } catch (err) {}
@@ -75,7 +76,7 @@ function* reviseTodoWorker({ id, content, isCheck, dueAt }: reviseTodoAction) {
   try {
     const response: AxiosResponse = yield call(
       todoApi.post,
-      '/todo?id=' + `${id}`,
+      '/todo?id=' + String(`${id}`),
       {
         content: content,
         isCheck: isCheck,
@@ -88,6 +89,7 @@ function* reviseTodoWorker({ id, content, isCheck, dueAt }: reviseTodoAction) {
         const data: revisedTodoAction = {
           type: 'REVISED_TODO',
         };
+        console.log(data);
         yield put(data);
     }
   } catch (err) {}

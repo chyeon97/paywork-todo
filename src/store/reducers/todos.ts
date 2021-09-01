@@ -13,14 +13,12 @@ const initState: todo[] = [];
 const todoReducer: Reducer<any, actions> = (state = initState, action) => {
   switch (action.type) {
     case 'CREATED_TODO':
-      return [...state, action.todo];
+      return [...state, action];
 
     case 'GOT_TODOS':
-      console.log(typeof action.todos);
       return [...state, action.todos];
 
     case 'REMOVED_TODO':
-      console.log(action);
       return [...state, action];
     default:
       return [...state];

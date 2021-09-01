@@ -19,7 +19,7 @@ const Modal: React.FC<ITodo> = ({ id, removeTodo }) => {
     const sid = id;
     if (sid) {
       if (dispatch(removeTodo(id)).type === 'REMOVE_TODO') {
-        alert('서버 통신 성공')
+        alert('삭제 데이터 전송 성공')
         dispatch(closeModal())
       }
     }

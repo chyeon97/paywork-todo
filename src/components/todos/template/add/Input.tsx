@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Select } from 'components/selector';
 import { Datepicker } from 'components/date';
 
 interface Iinput {
@@ -11,8 +10,6 @@ interface Iinput {
     e: Date,
     event: React.SyntheticEvent<any, Event> | undefined,
   ) => void;
-  // selectValue: string;
-  // onChangeSelect: (e: React.MouseEvent<HTMLElement>) => void;
 }
 
 const Input: React.FC<Iinput> = ({ inputValue, onChangeInput, dueDate, onChangeDueDate }) => {
@@ -21,7 +18,6 @@ const Input: React.FC<Iinput> = ({ inputValue, onChangeInput, dueDate, onChangeD
     <Container>
       <TodoInput value={inputValue} onChange={onChangeInput} />
       <Datepicker id="EndDate" date={dueDate} handleChange={onChangeDueDate} />
-      {/* <Select value={selectValue} handleChange={onChangeSelect} /> */}
     </Container>
   )
 }
